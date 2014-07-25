@@ -24,6 +24,23 @@ Or install it yourself as:
     > ZestConstants::FOO
     => "bar"
 
+In separate repos, replace references to hard coded values with reference to
+the same gem constant, which can be more self documenting.
+
+    if object.current_status == "foo"
+      head :ok
+    elsif object.current_status == "bar"
+      head :not_found
+    end
+
+Becomes:
+
+    if object.current_status == ZestConstants::FOO
+      head :ok
+    elsif object.current_status == ZestConstants::BAR
+      head :not_found
+    end
+
 
 ## Contributing
 
